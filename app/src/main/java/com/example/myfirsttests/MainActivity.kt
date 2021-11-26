@@ -27,6 +27,16 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this@MainActivity, errorEmail, Toast.LENGTH_SHORT).show()
                 }
             }
+
+            compareButton.setOnClickListener {
+                val pass1 = pass1Input.text.toString()
+                val pass2 = pass2Input.text.toString()
+
+                val result = PasswordComparator.comparePasswords(pass1, pass2)
+
+                if (result) Toast.makeText(this@MainActivity, getString(R.string.passwords_match), Toast.LENGTH_SHORT).show()
+                else Toast.makeText(this@MainActivity, getString(R.string.passwords_mismatch), Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
